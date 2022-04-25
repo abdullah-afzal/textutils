@@ -15,6 +15,12 @@ export default function InputForm(prop) {
       let newText=text.split(/[ ]+/);
       setText(newText.join(" "));
     }
+    function wordcounter(text) {
+      let wordNumber = text.split(' ').filter(
+          function (n) { return n != '' }
+      ).length;
+      return wordNumber;
+  }
     const handleClear=()=>{
       setText("");
     }
@@ -44,7 +50,7 @@ export default function InputForm(prop) {
 </div>
 <div className="container">
   <h3>Text Summery</h3>
-  <p>{text.split(" ").length} Words and {text.length} Characters ({Math.ceil(0.008 * text.split(" ").length)} Minutes Read) </p>
+  <p>{wordcounter(text)} Words and {text.length} Characters ({Math.ceil(wordcounter(text))} Minutes Read) </p>
   <h3>Preview</h3>
   <p>{text}</p>
 </div>
