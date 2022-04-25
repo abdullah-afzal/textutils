@@ -7,6 +7,13 @@ export default function InputForm(prop) {
     const handleLowercase=()=>{
       setText(text.toLowerCase());
     }
+    const handleCopy=()=>{
+      navigator.clipboard.writeText(text);
+    }
+    const handleExtraSpaces=()=>{
+      let newText=text.split(/[ ]+/);
+      setText(newText.join(" "));
+    }
     const handleClear=()=>{
       setText("");
     }
@@ -30,6 +37,8 @@ export default function InputForm(prop) {
   <button className='btn btn-primary mt-3 mx-2' onClick={capitalFirstLetter}>Title Case</button>
   <button className='btn btn-primary mt-3 mx-2' onClick={handleUppercase}>Uppercase</button>
   <button className='btn btn-primary mt-3 mx-2' onClick={handleLowercase}>Lowercase</button>
+  <button className='btn btn-primary mt-3 mx-2' onClick={handleExtraSpaces}>Remove Spaces</button>
+  <button className='btn btn-primary mt-3 mx-2' onClick={handleCopy}>Copy</button>
   <button className='btn btn-primary mt-3 mx-2' onClick={handleClear}>Clear</button>
 </div>
 <div className="container">
