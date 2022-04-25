@@ -9,6 +9,7 @@ export default function InputForm(prop) {
     }
     const handleCopy=()=>{
       navigator.clipboard.writeText(text);
+      prop.showAlert("Text Copied","success");
     }
     const handleExtraSpaces=()=>{
       let newText=text.split(/[ ]+/);
